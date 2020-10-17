@@ -12,9 +12,9 @@ len=${#keys[@]}
 
 for (( i=0; i<$len; i++ )); do
   # echo git clone ${repos[$i]} ${normals[$i]}
-  git submodule add ${repos[$i]} ${keys[$i]}
+  # git submodule add ${repos[$i]} ${keys[$i]}
   pushd ${keys[$i]}
-  tar xvf ../Jenkinsfile-example.tar.gz
+  # tar xvf ../Jenkinsfile-example.tar.gz
   bash --login
   popd
 done

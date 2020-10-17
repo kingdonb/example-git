@@ -1,0 +1,48 @@
+[submodule "nd_facilities_api"]
+	path = nd_facilities_api
+	url = git@bitbucket.org:nd-oit/nd_facilities_api.git
+[submodule "nd_finance_api_internal"]
+	path = nd_finance_api_internal
+	url = git@bitbucket.org:nd-oit/nd_finance_api_internal.git
+[submodule "nd-person-api-ws"]
+	path = nd-person-api-ws
+	url = git@bitbucket.org:nd-oit/nd-person-api-ws.git
+[submodule "nd_hrpy_api_internal"]
+	path = nd_hrpy_api_internal
+	url = git@bitbucket.org:nd-oit/nd_hrpy_api_internal.git
+[submodule "budgetentitygenerator"]
+	path = budgetentitygenerator
+	url = git@bitbucket.org:nd-oit/budgetentitygenerator.git
+[submodule "financial-toolkit"]
+	path = financial-toolkit
+	url = git@bitbucket.org:nd-oit/financial-toolkit.git
+[submodule "glez2"]
+	path = glez2
+	url = git@bitbucket.org:nd-oit/glez2.git
+[submodule "hire-right-integration"]
+	path = hire-right-integration
+	url = git@bitbucket.org:nd-oit/hire-right-integration.git
+[submodule "personnel-actions"]
+	path = personnel-actions
+	url = git@github.com:ndoit/personnel-actions.git
+[submodule "pzaforms"]
+	path = pzaforms
+	url = git@bitbucket.org:nd-oit/pzaforms.git
+[submodule "maintenance_testing_cucumber"]
+	path = maintenance_testing_cucumber
+	url = git@bitbucket.org:nd-oit/maintenance_testing_cucumber.git
+[submodule "nd-application-workflow"]
+	path = nd-application-workflow
+	url = git@bitbucket.org:nd-oit/nd-application-workflow.git
+[submodule "nd-employee-lookup-gem"]
+	path = nd-employee-lookup-gem
+	url = git@bitbucket.org:nd-oit/nd-employee-lookup-gem.git
+[submodule "nd_employee_lookup_example"]
+	path = nd_employee_lookup_example
+	url = git@bitbucket.org:nd-oit/nd_employee_lookup_example.git
+[submodule "nd_foapal_gem"]
+	path = nd_foapal_gem
+	url = git@bitbucket.org:nd-oit/nd_foapal_gem.git
+[submodule "nd-job-lookup-gem"]
+	path = nd-job-lookup-gem
+	url = git@bitbucket.org:nd-oit/nd-job-lookup-gem.git
