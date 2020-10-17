@@ -1,0 +1,39 @@
+{ "normalize-hyphenate":
+  {
+  "nd_facilities_api": "facilities-api",
+  "nd_finance_api_internal": "finance-api",
+  "nd-person-api-ws": "person-api",
+  "nd_hrpy_api_internal": "hrpy-api",
+  "budgetentitygenerator": "budgetentitygenerator",
+  "financial-toolkit": "financial-toolkit",
+  "glez2": "glez2",
+  "hire-right-integration": "hire-right-integration",
+  "personnel-actions": "personnel-actions",
+  "pzaforms": "pzaforms",
+  "maintenance_testing_cucumber": "maintenance-testing-cucumber",
+  "nd-application-workflow": "nd-application-workflow",
+  "nd-employee-lookup-gem": "nd-employee-lookup-gem",
+  "nd_employee_lookup_example": "nd-employee-lookup-example",
+  "nd_foapal_gem": "nd-foapal-gem",
+  "nd-job-lookup-gem": "nd-job-lookup-gem"
+  },
+  "git_repo":
+  {
+    "nd_facilities_api": "git@bitbucket.org:nd-oit/nd_facilities_api.git",
+    "nd_finance_api_internal": "git@bitbucket.org:nd-oit/nd_finance_api_internal.git",
+    "nd-person-api-ws": "git@bitbucket.org:nd-oit/nd-person-api-ws.git",
+    "nd_hrpy_api_internal": "git@bitbucket.org:nd-oit/nd_hrpy_api_internal.git",
+    "budgetentitygenerator": "git@bitbucket.org:nd-oit/budgetentitygenerator.git",
+    "financial-toolkit": "git@bitbucket.org:nd-oit/financial-toolkit.git",
+    "glez2": "git@bitbucket.org:nd-oit/glez2.git",
+    "hire-right-integration": "git@bitbucket.org:nd-oit/hire-right-integration.git",
+    "personnel-actions": "git@github.com:ndoit/personnel-actions.git",
+    "pzaforms": "git@bitbucket.org:nd-oit/pzaforms.git",
+    "maintenance_testing_cucumber": "git@bitbucket.org:nd-oit/maintenance_testing_cucumber.git",
+    "nd-application-workflow": "git@bitbucket.org:nd-oit/nd-application-workflow.git",
+    "nd-employee-lookup-gem": "git@bitbucket.org:nd-oit/nd-employee-lookup-gem.git",
+    "nd_employee_lookup_example": "git@bitbucket.org:nd-oit/nd_employee_lookup_example.git",
+    "nd_foapal_gem": "git@bitbucket.org:nd-oit/nd_foapal_gem.git",
+    "nd-job-lookup-gem": "git@bitbucket.org:nd-oit/nd-job-lookup-gem.git"
+  }
+}

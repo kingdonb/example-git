@@ -17,11 +17,3 @@ for (( i=0; i<$len; i++ )); do
   bash --login
   popd
 done
-
-#for i in git@bitbucket.org:nd-oit/budgetentitygenerator.git git@bitbucket.org:nd-oit/financial-toolkit.git git@bitbucket.org:nd-oit/glez2.git git@bitbucket.org:nd-oit/hire-right-integration.git git@bitbucket.org:nd-oit/maintenance_testing_cucumber.git git@bitbucket.org:nd-oit/nd-application-workflow.git git@bitbucket.org:nd-oit/nd-employee-lookup-gem.git git@bitbucket.org:nd-oit/nd-job-lookup-gem.git git@bitbucket.org:nd-oit/nd-person-api-ws.git git@bitbucket.org:nd-oit/nd_employee_lookup_example.git git@bitbucket.org:nd-oit/nd_facilities_api.git git@bitbucket.org:nd-oit/nd_finance_api_internal.git git@bitbucket.org:nd-oit/nd_foapal_gem.git git@bitbucket.org:nd-oit/nd_hrpy_api_internal.git git@bitbucket.org:nd-oit/pzaforms.git git@github.com:ndoit/personnel-actions.git
-#  do
-#    echo git clone $i
-#    echo pushd ${i%%.git}
-#    echo tar xvf ../Jenkinsfile.tar.gz
-#    echo popd
-#
