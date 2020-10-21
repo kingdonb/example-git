@@ -1,6 +1,7 @@
 { "normalize-hyphenate":
   {
   "nd_facilities_api": "facilities-api",
+  "nd-faculty-api-ws": "faculty-api",
   "nd_finance_api_internal": "finance-api",
   "nd-person-api-ws": "person-api",
   "nd_hrpy_api_internal": "hrpy-api",
@@ -20,6 +21,7 @@
   "git_repo":
   {
     "nd_facilities_api": "git@bitbucket.org:nd-oit/nd_facilities_api.git",
+    "nd-faculty-api-ws": "git@bitbucket.org:nd-oit/nd-faculty-api-ws.git",
     "nd_finance_api_internal": "git@bitbucket.org:nd-oit/nd_finance_api_internal.git",
     "nd-person-api-ws": "git@bitbucket.org:nd-oit/nd-person-api-ws.git",
     "nd_hrpy_api_internal": "git@bitbucket.org:nd-oit/nd_hrpy_api_internal.git",
