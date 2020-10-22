@@ -28,9 +28,6 @@
 [submodule "pzaforms"]
 	path = pzaforms
 	url = git@bitbucket.org:nd-oit/pzaforms.git
-[submodule "maintenance_testing_cucumber"]
-	path = maintenance_testing_cucumber
-	url = git@bitbucket.org:nd-oit/maintenance_testing_cucumber.git
 [submodule "nd-application-workflow"]
 	path = nd-application-workflow
 	url = git@bitbucket.org:nd-oit/nd-application-workflow.git
