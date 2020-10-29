@@ -46,3 +46,6 @@
 [submodule "nd-faculty-api-ws"]
 	path = nd-faculty-api-ws
 	url = git@bitbucket.org:nd-oit/nd-faculty-api-ws.git
+[submodule "upstream-rubygems"]
+	path = upstream-rubygems
+	url = git@github.com:ndoit/upstream-rubygems.git
