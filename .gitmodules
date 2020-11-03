@@ -70,3 +70,6 @@
 [submodule "nd-foapal-gem"]
 	path = nd-foapal-gem
 	url = git@bitbucket.org:nd-oit/nd_foapal_gem.git
+[submodule "empfinchart"]
+	path = empfinchart
+	url = git@github.com:kingdonb/empfinchart.git
