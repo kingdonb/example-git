@@ -1,0 +1,67 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: pa=registry.kingdonb.dev/admin/personnel-actions,facilities-api=registry.kingdonb.dev/admin/facilities-api,person-api=registry.kingdonb.dev/admin/person-api,hrpy-api=registry.kingdonb.dev/admin/hrpy-api,finance-api=registry.kingdonb.dev/admin/finance-api,faculty-api=registry.kingdonb.dev/admin/faculty-api
+    argocd-image-updater.argoproj.io/pa.allow-tags: regexp:^[a-f0-9]{8}$
+    argocd-image-updater.argoproj.io/pa.update-strategy: latest
+    argocd-image-updater.argoproj.io/facilities-api.allow-tags: regexp:^[a-f0-9]{8}$
+    argocd-image-updater.argoproj.io/facilities-api.update-strategy: latest
+    argocd-image-updater.argoproj.io/facilities-api.helm.image-name: facilities.image.name
+    argocd-image-updater.argoproj.io/facilities-api.helm.image-tag: facilities.image.tag
+    argocd-image-updater.argoproj.io/faculty-api.allow-tags: regexp:^[a-f0-9]{8}$
+    argocd-image-updater.argoproj.io/faculty-api.update-strategy: latest
+    argocd-image-updater.argoproj.io/faculty-api.helm.image-name: faculty.image.name
+    argocd-image-updater.argoproj.io/faculty-api.helm.image-tag: faculty.image.tag
+    argocd-image-updater.argoproj.io/finance-api.allow-tags: regexp:^[a-f0-9]{8}$
+    argocd-image-updater.argoproj.io/finance-api.update-strategy: latest
+    argocd-image-updater.argoproj.io/finance-api.helm.image-name: finance.image.name
+    argocd-image-updater.argoproj.io/finance-api.helm.image-tag: finance.image.tag
+    argocd-image-updater.argoproj.io/hrpy-api.allow-tags: regexp:^[a-f0-9]{8}$
+    argocd-image-updater.argoproj.io/hrpy-api.update-strategy: latest
+    argocd-image-updater.argoproj.io/hrpy-api.helm.image-name: hrpy.image.name
+    argocd-image-updater.argoproj.io/hrpy-api.helm.image-tag: hrpy.image.tag
+    argocd-image-updater.argoproj.io/person-api.allow-tags: regexp:^[a-f0-9]{8}$
+    argocd-image-updater.argoproj.io/person-api.update-strategy: latest
+    argocd-image-updater.argoproj.io/person-api.helm.image-name: person.image.name
+    argocd-image-updater.argoproj.io/person-api.helm.image-tag: person.image.tag
+  name: pa-dev
+  namespace: argocd
+spec:
+  destination:
+    namespace: pa
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: facilities.image.name
+        value: registry.kingdonb.dev/admin/facilities-api
+      - name: facilities.image.tag
+        value: c5d68d8a
+      - name: faculty.image.name
+        value: registry.kingdonb.dev/admin/faculty-api
+      - name: faculty.image.tag
+        value: daec0acb
+      - name: finance.image.name
+        value: registry.kingdonb.dev/admin/finance-api
+      - name: finance.image.tag
+        value: bb195a20
+      - name: person.image.name
+        value: registry.kingdonb.dev/admin/person-api
+      - name: person.image.tag
+        value: '19423236'
+      - name: hrpy.image.name
+        value: registry.kingdonb.dev/admin/hrpy-api
+      - name: hrpy.image.tag
+        value: 55e02f07
+      - name: canary.enabled
+        value: 'false'
+      - name: image.name
+        value: registry.kingdonb.dev/admin/personnel-actions
+      - name: image.tag
+        value: '9677e814'
+    path: .
+    repoURL: git@github.com:kingdonb/empfinchart.git
+    targetRevision: HEAD
+  syncPolicy: {}
