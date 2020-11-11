@@ -1,0 +1,69 @@
+From a7660e15ba07ca37899f2de27fb08b4ed6689c4e Mon Sep 17 00:00:00 2001
+From: Kingdon Barrett <kingdon.b@nd.edu>
+Date: Wed, 11 Nov 2020 12:39:10 -0500
+Subject: [PATCH] login before build
+
+We have to move image dependencies away from Docker Hub to avoid random
+errors that we will get related to the new Docker Hub rate limits.
+---
+ Jenkinsfile             | 7 ++++++-
+ jenkins/docker-build.sh | 5 +++++
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/Jenkinsfile b/Jenkinsfile
+index 07ee3f7..c283f04 100644
+--- a/Jenkinsfile
++++ b/Jenkinsfile
+@@ -24,20 +24,25 @@ pipeline {
+                 credentialsId: jenkinsSshSecret,
+                 keyFileVariable: 'SSH_KEY')
+               ]) {
++            withCredentials([[$class: 'UsernamePasswordMultiBinding',
++              credentialsId: jenkinsDockerSecret,
++              usernameVariable: 'DOCKER_REPO_USER',
++              passwordVariable: 'DOCKER_REPO_PASSWORD']]) {
+             script {
+               gitCommit = env.GIT_COMMIT.substring(0,8)
+               imageTag = sh (script: "./jenkins/image-tag.sh", returnStdout: true)
+             }
+             sh """\
+             #!/bin/sh
++            export DOCKER_REPO_USER DOCKER_REPO_PASSWORD
+             export DOCKER_REPO_HOST="${dockerRepoHost}"
+-            export DOCKER_REPO_USER="${dockerRepoUser}"
+             export DOCKER_REPO_PROJ="${dockerRepoProj}"
+             export GIT_COMMIT="${gitCommit}"
+             eval \$(ssh-agent) && ssh-add ${SSH_KEY} && ssh-add -l
+             ./jenkins/docker-build.sh
+             """.stripIndent()
+           }
++          }
+         }
+       }
+     }
+diff --git a/jenkins/docker-build.sh b/jenkins/docker-build.sh
+index 1f565f8..4f121e6 100755
+--- a/jenkins/docker-build.sh
++++ b/jenkins/docker-build.sh
+@@ -4,6 +4,10 @@ if [[ -z "$DOCKER_REPO_USER" ]]; then
+   echo "Must provide DOCKER_REPO_USER in environment" 1>&2
+   exit 1
+ fi
++if [[ -z "$DOCKER_REPO_PASSWORD" ]]; then
++  echo "Must provide DOCKER_REPO_PASSWORD in environment" 1>&2
++  exit 1
++fi
+ if [[ -z "$DOCKER_REPO_PROJ" ]]; then
+   echo "Must provide DOCKER_REPO_PROJ in environment" 1>&2
+   exit 1
+@@ -19,6 +23,7 @@ fi
+ 
+ GIT_COMMIT_SHORT=$(echo $GIT_COMMIT|cut -c1-8)
+ 
++docker login ${DOCKER_REPO_HOST} -u ${DOCKER_REPO_USER} -p ${DOCKER_REPO_PASSWORD}
+ docker build --ssh=default -t ${DOCKER_REPO_HOST}/${DOCKER_REPO_USER}/${DOCKER_REPO_PROJ}:${GIT_COMMIT_SHORT} --target test .
+ docker build -t ${DOCKER_REPO_HOST}/${DOCKER_REPO_USER}/${DOCKER_REPO_PROJ}:bundler --target gem-bundle .
+ docker build -t ${DOCKER_REPO_HOST}/${DOCKER_REPO_USER}/${DOCKER_REPO_PROJ}:jenkins_${GIT_COMMIT_SHORT} --target jenkins .
+-- 
+2.29.2
+
