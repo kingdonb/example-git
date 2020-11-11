@@ -11,10 +11,10 @@ normals=( $(jq '.["normalize-hyphenate"] | to_entries | .[].value' map.json --ra
 len=${#keys[@]}
 
 for (( i=0; i<$len; i++ )); do
-  echo git clone ${repos[$i]} ${normals[$i]}
-  git submodule add ${repos[$i]} ${normals[$i]}
+  # echo git clone ${repos[$i]} ${normals[$i]}
+  # git submodule add ${repos[$i]} ${normals[$i]}
   pushd ${normals[$i]}
   tar xvf ../Jenkinsfile-example.tar.gz
-  # bash --login
+  bash --login
   popd
 done
